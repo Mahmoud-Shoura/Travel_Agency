@@ -439,3 +439,30 @@ transform: scale(1.1);
     font-size: 16px;
     color: #fff;
 }
+
+/* --------- site-banner ---------- */
+
+.site-banner {
+    background-color: #000;
+}
+
+.site-banner .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.site-banner .row p {
+    font-family: 800;
+    font-size: 70px;
+    background-image: url(../image/pexels-gotta-be-worth-it-919278.jpg);
+    -webkit-background-clip: text;
+    -webkit-text-stroke: #010101;
+    -webkit-text-fill-color: transparent;
+}
+
+.site-banner .row small {
+    font-family: 600;
+    font-size: 30px;
+}
