@@ -454,8 +454,8 @@ transform: scale(1.1);
 }
 
 .site-banner .row p {
-    font-family: 800;
-    font-size: 70px;
+    font-weight: 800;
+    font-size: 100px;
     background-image: url(../image/pexels-gotta-be-worth-it-919278.jpg);
     -webkit-background-clip: text;
     -webkit-text-stroke: #010101;
