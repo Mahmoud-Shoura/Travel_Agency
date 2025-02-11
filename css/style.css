@@ -1,15 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:wght@300;400;500;700;900&display=swap');
-
-
 :root {
     --primary-color: #00040b;
     --primary-light: #a0b3e5;
     --orange-color: #f35405;
 }
-
-
-
-
 * {
     padding: 0;
     margin: 0;
@@ -19,55 +13,47 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #00040b;
+    background-color: var(--primary-color);
     color: #eee;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Roboto', sans-serif;
-}
-
+/* ✅ تحسين الهيدر */
 .nav-bar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    background-color: transparent;
-    box-shadow: 1px 1px 2px #a0b3e5;
-}
-
-.content {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 1.6rem 1rem;
+    background-color: rgba(0, 4, 11, 0.8);
+    box-shadow: 1px 1px 2px var(--primary-light);
+    padding: 1rem 0;
+    z-index: 1000;
 }
 
 .nav-bar .content {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
 }
 
+/* ✅ تحسين اللوجو */
 .nav-bar .site-logo {
-    padding: 0.5rem;
-
-}
-
-.nav-bar .site-logo .logo-link {
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 22px;
+    font-weight: 600;
+    font-size: 24px;
     text-transform: capitalize;
     color: #fff;
-    border-top: 1px solid var(--orange-color);
+    border-top: 2px solid var(--orange-color);
+    padding: 0.5rem;
 }
 
+.nav-bar .site-logo a{
+    color: #fff;
+}
+
+/* ✅ تحسين قائمة التنقل */
 .nav-bar .navigation {
     list-style: none;
     display: flex;
@@ -76,47 +62,106 @@ h4 {
 }
 
 .nav-bar .navigation .link a {
-    padding: 0.25rem 0.5rem;
     font-weight: 500;
     font-size: 16px;
     text-transform: capitalize;
     color: #fff;
-    border-top: 1px solid transparent;
-    transition: all 0.6s;
+    padding: 0.5rem;
+    border-top: 2px solid transparent;
+    transition: all 0.4s ease-in-out;
 }
 
 .nav-bar .navigation .link:hover a {
     color: var(--orange-color);
-    border-top: 1px solid var(--orange-color);
+    border-top: 2px solid var(--orange-color);
 }
 
+/* ✅ إضافة زر الهامبرغر */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ✅ تحسين التصميم للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .nav-bar .navigation {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 4, 11, 0.9);
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+        display: none;
+    }
+
+    .nav-bar .navigation.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+
+/* ------------ home ------------- */
+
 .home {
-    background: linear-gradient(to top, #00040b, #021235bb), url(../image/pexels-vitor-gusmão-shimabukuro-2104044.jpg);
+    background: linear-gradient(to top, #00040b, #021235bb), 
+                url(../image/pexels-vitor-gusmão-shimabukuro-2104044.jpg);
     background-repeat: no-repeat;
-    background-position: top right;
+    background-position: center;
     background-size: cover;
     min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    gap: 1rem;
+    align-items: center; /* تغيير التوزيع ليكون متناسقًا أكثر */
+    text-align: center;
+    padding: 2rem 1rem;
 }
 
+/* ✅ تحسين عرض المحتوى */
 .home .content {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin: 0 auto;
     width: 100%;
+    max-width: 900px;
+    align-items: center;
 }
 
+/* ✅ تحسين العنوان */
 .home .content h1 {
     font-size: 56px;
     line-height: 68px;
     max-width: 450px;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 500;
     background-image: url(../image/pexels-alex-azabache-3214958.jpg);
@@ -125,81 +170,102 @@ h4 {
     -webkit-text-stroke: 1px #fff;
 }
 
+/* ✅ تحسين النصوص */
 .home .content h4 {
     font-size: 26px;
-    line-height: 26px;
+    line-height: 32px;
     font-weight: 300;
     color: #a0b3e5;
+    max-width: 600px;
 }
 
+/* ✅ تحسين زر `Explore` */
 .btn-explore {
     width: fit-content;
     background-color: #f35405cc;
-    padding: 0.9rem 2.4rem;
-    padding-left: 1rem;
-    font-size: 16px;
-    line-height: 16px;
+    padding: 1rem 2rem;
+    font-size: 18px;
     color: #eee;
     border: 2px solid #f35405cc;
-    /* margin-top: 2rem; */
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 1rem;
-    transition: all 1s;
+    transition: all 0.5s;
+    border-radius: 5px;
 }
 
 .btn-explore:hover {
-    border: 2px solid var(--orange-color);
     background-color: #f35405;
-    padding-left: 2rem;
+    padding-left: 2.5rem;
 }
 
-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    gap: 2rem;
+/* ✅ تحسين التصميم للشاشات الصغيرة */
+@media (max-width: 1024px) {
+    .home .content h1 {
+        font-size: 48px;
+        line-height: 60px;
+    }
+    .home .content h4 {
+        font-size: 22px;
+        line-height: 28px;
+    }
 }
 
-section .heading {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    gap: 0.9rem;
-    padding: 2rem 0rem;
+@media (max-width: 768px) {
+    .home {
+        text-align: center;
+        align-items: center;
+        padding: 3rem 1rem;
+    }
+    .home .content h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+    .home .content h4 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .btn-explore {
+        font-size: 16px;
+        padding: 0.8rem 1.6rem;
+    }
 }
 
-section .content {
-    width: 100%;
-    max-width: 1300px;
+@media (max-width: 480px) {
+    .home .content h1 {
+        font-size: 32px;
+        line-height: 40px;
+        max-width: 100%;
+    }
+    .home .content h4 {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .btn-explore {
+        font-size: 14px;
+        padding: 0.7rem 1.4rem;
+    }
 }
 
-section .heading .title {
-    text-transform: capitalize;
-    font-size: 36px;
-    line-height: 36px;
-    font-weight: 600;
-    letter-spacing: 0px;
-    color: #fff;
+
+/* ---------- about ------------ */
+
+.about {
+    padding: 3rem 1rem;
     text-align: center;
 }
 
-section .heading .subtitle {
-    font-size: 20px;
-    font-weight: 300;
-    color: #eee;
-}
-
+/* ✅ جعل الشبكة مرنة ومتجاوبة */
 .about .items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 3rem;
     width: 100%;
+    align-items: center;
 }
 
+/* ✅ ضبط المحتوى والصور */
 .about .items .item,
 .about .items .image {
     width: 100%;
@@ -210,26 +276,30 @@ section .heading .subtitle {
 }
 
 .about .items .image {
-    padding: 2rem;
-    padding-left: 1rem;
-    margin-top: 4rem;
+    padding: 1rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
 }
 
 .about .items .image img {
     width: 100%;
-    height: fit-content;
+    max-height: 500px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
+/* ✅ ضبط النصوص */
 .about .item-content {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    text-align: left;
 }
 
 .about .items .item .about-title {
-    font-size: 46px;
-    font-weight: 500;
+    font-size: 42px;
+    font-weight: 600;
     color: #fff;
 }
 
@@ -245,53 +315,108 @@ section .heading .subtitle {
     color: #eee;
 }
 
+/* ✅ تحسين قسم البيانات */
 .about .item-data {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1rem;
+    text-align: center;
 }
 
 .about .item-data .col {
     width: 100%;
-    padding: 2rem 1rem;
-    background-color: #ffffff44;
+    padding: 1.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     border-top: 6px solid #000;
     cursor: pointer;
-    transition: all .6s;
+    transition: all .4s ease-in-out;
+    border-radius: 8px;
 }
 
 .about .item-data .col:hover {
-    background-color: #00000077;
+    background-color: rgba(0, 0, 0, 0.5);
     border-top: 6px solid #fff;
 }
 
 .about .item-data .col h1 {
-    text-align: center;
-    font-size: 40px;
+    font-size: 36px;
+    font-weight: bold;
 }
 
 .about .item-data .col span {
-    text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
 }
 
-.next {
-    background-color: var(--primary-color);
+/* ✅ تحسينات الاستجابة للشاشات المختلفة */
+@media (max-width: 1024px) {
+    .about .items {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .about .items .item .about-title {
+        font-size: 36px;
+    }
+    .about .items .image img {
+        max-height: 400px;
+    }
+    .about .item-data {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
 }
 
+@media (max-width: 768px) {
+    .about .items .item .about-title {
+        font-size: 32px;
+    }
+    .about .items .item .about-desc p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    .about .item-data {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .about .items {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .about .items .item .about-title {
+        font-size: 28px;
+    }
+    .about .items .item .about-desc p {
+        font-size: 12px;
+    }
+    .about .item-data {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ----------- next --------------- */
+
+.next {
+    background-color: var(--primary-color);
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+/* جعل التخطيط مرنًا باستخدام Grid */
 .next .items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 4rem;
-    padding: 0rem 1rem;
+    gap: 2rem;
+    justify-content: center;
+    padding: 0 1rem;
 }
 
+/* تصميم كل بطاقة */
 .next .items .card {
     width: 100%;
     height: 360px;
@@ -299,8 +424,10 @@ section .heading .subtitle {
     position: relative;
     cursor: pointer;
     max-width: 350px;
+    border-radius: 10px;
 }
 
+/* تنسيق قسم الصورة */
 .next .items .card .image {
     width: 100%;
     height: 80%;
@@ -309,6 +436,7 @@ section .heading .subtitle {
     position: relative;
 }
 
+/* تأثير التدرج */
 .next .items .card .image::after {
     position: absolute;
     content: '';
@@ -319,88 +447,166 @@ section .heading .subtitle {
     background-image: linear-gradient(to top, var(--primary-color), transparent);
 }
 
+/* ضبط صورة البطاقة */
 .next .items .card .image img {
     width: 100%;
-    min-height: 100%;
-    height: fit-content;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+    border-radius: 10px 10px 0 0;
 }
 
+/* تأثير التكبير عند التحويم */
+.next .items .card:hover .image img {
+    transform: scale(1.1);
+}
+
+/* محتوى البطاقة */
 .next .card .content-card {
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 0rem 1rem;
-    transform: translateY(-49%);
+    padding: 1rem;
+    transform: translateY(-50%);
     color: #fff;
     z-index: 100;
     cursor: pointer;
-    transition: all .6s;
+    transition: transform 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
+    text-align: left;
 }
 
+/* عند التحويم، يتحرك المحتوى للأعلى */
 .next .card:hover .content-card {
-    position: absolute;
     transform: translateY(-60%);
 }
 
+/* عنوان البطاقة */
 .next .card .content-card h4 {
-    font-size: 42px;
+    font-size: 32px;
     font-family: 'Roboto';
     text-transform: capitalize;
     font-weight: 500;
     color: #fff;
+    margin: 0;
 }
 
+/* نص البطاقة */
 .next .card .content-card p {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     color: #eee;
+    margin: 0;
 }
 
+/* زر القراءة */
 .next .card .btn-read {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 16px;
     font-weight: 300;
     color: #eee;
-    padding: .8rem 2.4rem;
+    padding: 0.6rem 1.8rem;
     width: fit-content;
     background-color: transparent;
     border: 1.6px solid #eee;
     cursor: pointer;
-    transition: all .3s ease-in;
-    margin-top: 1rem;
-    margin-left: .7rem;
+    transition: all 0.3s ease-in;
+    margin-top: 0.8rem;
 }
 
+/* تأثير التحويم على الزر */
 .next .card .btn-read:hover {
-    padding-left: 3rem;
+    padding-left: 2rem;
     color: #fff;
-    border: 1.6 solid #fff;
+    border: 1.6px solid #fff;
 }
+
+/* 📌 تحسينات الاستجابة للشاشات المختلفة */
+@media (max-width: 1024px) {
+    .next .items {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .next .items .card {
+        height: 320px;
+    }
+    .next .items .card .content-card {
+        transform: translateY(-40%);
+    }
+}
+
+@media (max-width: 768px) {
+    .next .items {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .next .items .card {
+        height: 280px;
+    }
+    .next .items .card .content-card {
+        transform: translateY(-30%);
+    }
+    .next .card .content-card h4 {
+        font-size: 24px;
+    }
+    .next .card .content-card p {
+        font-size: 12px;
+    }
+    .next .card .btn-read {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .next .items {
+        grid-template-columns: 1fr;
+    }
+    .next .items .card {
+        height: 250px;
+    }
+    .next .items .card .content-card {
+        transform: translateY(-20%);
+    }
+    .next .card .content-card h4 {
+        font-size: 20px;
+    }
+    .next .card .content-card p {
+        font-size: 10px;
+    }
+    .next .card .btn-read {
+        font-size: 10px;
+        padding: 0.5rem 1.5rem;
+    }
+}
+
 
 /* ----------- blog --------------- */
 
 .blog {
     background-color: #010101;
+    padding: 3rem 1rem;
+    text-align: center;
 }
 
+/* جعل التخطيط مرنًا باستخدام Grid */
 .blog .items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    padding: 0rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 1rem;
 }
 
+/* تصميم كل بطاقة */
 .blog .items .card {
     width: 100%;
-    min-height: 450px;
+    min-height: 400px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    border-radius: 10px;
 }
 
+/* تأثير التدرج */
 .blog .items .card::after {
     position: absolute;
     content: '';
@@ -412,18 +618,21 @@ section .heading .subtitle {
     z-index: 0;
 }
 
-
+/* ضبط صورة البطاقة */
 .blog .items .card img {
     width: 100%;
-    height: 450px;
+    height: 400px;
     object-fit: cover;
-    transition: all 1s;
+    transition: transform 0.5s ease-in-out;
+    border-radius: 10px;
 }
 
+/* تأثير التكبير عند التحويم */
 .blog .items .card:hover img {
     transform: scale(1.1);
 }
 
+/* محتوى البطاقة */
 .blog .items .card .content-card {
     position: absolute;
     bottom: 0;
@@ -431,25 +640,72 @@ section .heading .subtitle {
     right: 0;
     z-index: 100;
     transform: translateY(20px);
-    transition: all 1s;
+    transition: transform 0.5s ease-in-out;
 }
 
+/* عند التحويم، يظهر المحتوى للأعلى */
 .blog .items .card:hover .content-card {
-    position: absolute;
-    transform: translateY(-30px);
+    transform: translateY(-20px);
 }
 
+/* تنسيق النص داخل البطاقة */
 .blog .items .card p {
-    padding: 1rem 1rem;
+    padding: 1rem;
     font-size: 16px;
     color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 10px 10px;
 }
+
+/* 📌 تحسينات الاستجابة للشاشات المختلفة */
+@media (max-width: 1024px) {
+    .blog .items {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .blog .items .card img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog .items {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .blog .items .card {
+        min-height: 350px;
+    }
+    .blog .items .card img {
+        height: 300px;
+    }
+    .blog .items .card p {
+        font-size: 14px;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog .items {
+        grid-template-columns: 1fr;
+    }
+    .blog .items .card {
+        min-height: 300px;
+    }
+    .blog .items .card img {
+        height: 250px;
+    }
+    .blog .items .card p {
+        font-size: 12px;
+        padding: 0.6rem;
+    }
+}
+
 
 /* --------- site-banner ---------- */
 
 .site-banner {
     background-color: #000;
     padding: 2rem 0rem;
+    text-align: center;
 }
 
 .site-banner .row {
@@ -457,6 +713,7 @@ section .heading .subtitle {
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
 }
 
 .site-banner .row p {
@@ -466,14 +723,62 @@ section .heading .subtitle {
     background-size: cover;
     background-attachment: fixed;
     -webkit-background-clip: text;
-    -webkit-text-stroke: #010101;
+    -webkit-text-stroke: 3px #010101;
     -webkit-text-fill-color: transparent;
+    margin: 0;
+    padding: 10px;
+    line-height: 1.2;
 }
 
 .site-banner .row small {
-    font-family: 600;
+    font-weight: 600;
     font-size: 80px;
+    color: white;
+    display: block;
+    margin-top: -20px;
 }
+
+/* 📌 تحسينات الاستجابة للشاشات الصغيرة */
+@media (max-width: 1200px) {
+    .site-banner .row p {
+        font-size: 150px;
+    }
+    .site-banner .row small {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 992px) {
+    .site-banner .row p {
+        font-size: 120px;
+        -webkit-text-stroke: 2px #010101;
+    }
+    .site-banner .row small {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-banner .row p {
+        font-size: 80px;
+        background-attachment: scroll;
+        -webkit-text-stroke: 1.5px #010101;
+    }
+    .site-banner .row small {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-banner .row p {
+        font-size: 60px;
+        -webkit-text-stroke: 1px #010101;
+    }
+    .site-banner .row small {
+        font-size: 30px;
+    }
+}
+
 
 /* ----------- gallery ------------- */
 
@@ -488,13 +793,13 @@ section .heading .subtitle {
 }
 
 .gallery .items .card {
-    grid-column:span 1;
+    grid-column: span 1;
     width: 100%;
     min-height: 450px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    transition: all 0.6s;
+    transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .gallery .items .card::after {
@@ -509,18 +814,287 @@ section .heading .subtitle {
 }
 
 .gallery .items .card:hover {
-    min-width: 300px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+    z-index: 2;
 }
 
 .gallery .items .card img {
     width: 100%;
     height: 450px;
     object-fit: cover;
-    transition: all 1s;
     transition: transform 0.5s ease-in-out;
 }
 
 .gallery .items .card:hover img {
     transform: scale(1.1);
+}
+
+/* -------------- contact -------------- */
+
+.contact {
+    background: var(--primary-color);
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--primary-light);
+}
+
+.contact .container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.contact .title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-light);
+}
+
+.contact .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--primary-light);
+}
+
+/* Contact Content: يستخدم Flexbox */
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+/* Contact Info */
+.contact-info {
+    flex: 1;
+    text-align: left;
+    min-width: 280px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--orange-color);
+    margin-right: 10px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: var(--orange-color);
+    margin-right: 15px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--primary-light);
+}
+
+/* Contact Form */
+.contact-form {
+    flex: 1;
+    min-width: 400px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--primary-light);
+    border-radius: 5px;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--primary-light);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--primary-light);
+    opacity: 0.7;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form .btn {
+    background: var(--orange-color);
+    color: white;
+    padding: 12px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.contact-form .btn:hover {
+    background: #d94602;
+}
+
+/* 📌 جعل العناصر فوق بعضها في الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info, .contact-form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .info-item {
+        justify-content: center;
+    }
+}
+
+/* ----------- footer ------------ */
+
+.footer {
+    background-color: var(--primary-color);
+    color: #eee;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.footer .content {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* ✅ تنسيق القسم الأول - اللوجو والوصف */
+.footer .logo-section {
+    text-align: left;
+}
+
+.footer .logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    border-top: 2px solid var(--orange-color);
+    display: inline-block;
+    padding-top: 0.5rem;
+}
+
+.footer .logo-section p {
+    margin-top: 1rem;
+    font-size: 14px;
+    color: var(--primary-light);
+}
+
+/* ✅ تنسيق القسم الثاني - روابط سريعة */
+.footer .quick-links {
+    text-align: left;
+}
+
+.footer .quick-links h3 {
+    font-size: 18px;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.footer .quick-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .quick-links ul li {
+    margin-bottom: 0.6rem;
+}
+
+.footer .quick-links ul li a {
+    color: var(--primary-light);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer .quick-links ul li a:hover {
+    color: var(--orange-color);
+}
+
+/* ✅ تنسيق القسم الثالث - معلومات الاتصال */
+.footer .contact-info {
+    text-align: left;
+}
+
+.footer .contact-info h3 {
+    font-size: 18px;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.footer .contact-info p {
+    font-size: 14px;
+    color: var(--primary-light);
+    margin-bottom: 0.5rem;
+}
+
+/* ✅ أيقونات السوشيال ميديا */
+.footer .social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footer .social a {
+    color: var(--orange-color);
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer .social a:hover {
+    color: #fff;
+}
+
+/* ✅ تصميم الحقوق أسفل الفوتر */
+.footer-bottom {
+    margin-top: 2rem;
+    border-top: 1px solid var(--primary-light);
+    padding-top: 1rem;
+    font-size: 12px;
+    color: var(--primary-light);
+    text-align: center;
+}
+
+/* ✅ تحسين التصميم للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .footer .content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer .logo-section,
+    .footer .quick-links,
+    .footer .contact-info {
+        text-align: center;
+    }
+
+    .footer .social {
+        justify-content: center;
+    }
 }
